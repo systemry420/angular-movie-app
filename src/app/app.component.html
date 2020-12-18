@@ -3,4 +3,12 @@
     <input type="text" id="input" placeholder="Search">
   </form>
 </header>
-<main></main>
+<main>
+  <div class="movie" *ngFor="let movie of movies">
+    <img src="{{IMGPATH + movie.poster_path}}" alt="{{movie.original_title}}">
+    <div class="movie-info">
+        <h3>{{movie.original_title}}</h3>
+        <span class="">{{movie.vote_average}}</span>
+    </div>
+  </div>
+</main>
