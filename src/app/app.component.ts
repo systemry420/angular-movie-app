@@ -33,4 +33,13 @@ export class AppComponent {
       this.fetchMovies(this.SEARCHAPI + val)
     }
   }
+
+  getClassByRate(rate){
+    if(rate > 7)
+        return 'green';
+    else if( rate <5)
+        return 'red';
+    else
+        return 'orange';
+  }
 }
