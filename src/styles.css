@@ -28,11 +28,12 @@ button {
   outline: none;
 }
 
-header h1 {
+h1 {
   color: #fff;
   margin: 5px 0;
   font-size: 3em;
   text-transform: uppercase;
+  text-align: center;
 }
 
 header input {

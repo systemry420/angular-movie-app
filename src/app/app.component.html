@@ -1,16 +1,28 @@
 <header class="header">
   <h1>Movie App</h1>
   <form id="form">
-    <input type="text" #search id="input" placeholder="Type movie name" [(ngModel)]="searchTerm">
+    <input type="text" #search id="input" placeholder="Type movie name" value="">
     <button (click)="searchMovie(search.value)">Search</button>
   </form>
 </header>
-<main>
-  <div class="movie" *ngFor="let movie of movies">
-    <img src="{{IMGPATH + movie.poster_path}}" alt="{{movie.original_title}}">
-    <div class="movie-info">
-        <h3>{{movie.original_title}}</h3>
-        <span class="{{getClassByRate(movie.vote_average)}}">{{movie.vote_average}}</span>
+
+<ng-template *ngIf=" movies.length == 0; then emptyBlock; else elseBlock">
+</ng-template>
+
+<ng-template #emptyBlock>
+  <main>
+    <h1>We can't find any movie with this name!</h1>
+  </main>
+</ng-template>
+
+<ng-template #elseBlock>
+  <main>
+    <div class="movie" *ngFor="let movie of movies" #elseBlock>
+      <img src="{{IMGPATH + movie.poster_path}}" alt="{{movie.original_title}}">
+      <div class="movie-info">
+          <h3>{{movie.original_title}}</h3>
+          <span class="{{getClassByRate(movie.vote_average)}}">{{movie.vote_average}}</span>
+      </div>
     </div>
-  </div>
-</main>
+  </main>
+</ng-template>

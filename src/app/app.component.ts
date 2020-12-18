@@ -23,8 +23,8 @@ export class AppComponent {
 
   fetchMovies(url) {
     this.http.get(url).subscribe(data => {
-      // console.log(data);
-      this.movies = data.results
+      console.log(data);
+      this.movies = data['results']
     })
   }
 
