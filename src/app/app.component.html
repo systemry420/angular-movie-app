@@ -1,6 +1,8 @@
 <header class="header">
+  <h1>Movie App</h1>
   <form id="form">
-    <input type="text" id="input" placeholder="Search">
+    <input type="text" #search id="input" placeholder="Type movie name" [(ngModel)]="searchTerm">
+    <button (click)="searchMovie(search.value)">Search</button>
   </form>
 </header>
 <main>
